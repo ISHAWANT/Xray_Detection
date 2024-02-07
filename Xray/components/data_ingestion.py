@@ -11,6 +11,7 @@ class DataIngestion:
 
     def get_data_from_s3(self):
         try:
+            
             pass
         exception Exception as e:
             raise XrayException(e,sys) 
