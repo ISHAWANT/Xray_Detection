@@ -128,6 +128,14 @@ class DataTransformation:
             joblib.dump(
                 test_transform,sefl.data_transformation_config.test_transforms_file
             )
+            logging.info("Exited the initiate_data_transformation method of data transformation class") 
+
+            return data_transformation_artifact 
+
+        except Exception as e:
+            raise XrayException(e,sys) 
+            loggin.info('Data transformation completed!!!!') 
+            loggin.info('code runner checked and exits from main component loop') 
 
             
 
