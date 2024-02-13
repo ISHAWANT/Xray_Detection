@@ -1,9 +1,14 @@
 import os
 import sys
-from  Xray.exception import XRayException
+from  Xray.exception import XrayException
+from Xray.configuration.aws_connection import S3Client
 
 
 class S3Operation:
+    def __init__(self):
+        s3_client=S3Client()
+        self.s3_resource=s3_client.s3_resource
+        self.s3_client=s3_client.s3_client
     
     def sync_folder_to_s3(self,folder: str,bucket_name: str, bucket_folder_name: str)-> None:
         try:
