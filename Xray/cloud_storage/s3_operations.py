@@ -1,7 +1,8 @@
 import os
 import sys
 
-from Xray.exception import XRayException
+# from Xray.exception import XRayException
+from Xray.exception import XrayException
 
 
 class S3Operation:
@@ -29,4 +30,4 @@ class S3Operation:
             os.system(command)
 
         except Exception as e:
-            raise XRayException(e, sys)
+            raise XrayException(e, sys)
