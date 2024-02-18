@@ -1,7 +1,7 @@
 import sys
 
 from Xray.cloud_storage.s3_operations import S3Operation
-from Xray.constant.training_pipeline import *
+from Xray.constant import *
 from Xray.entity.artifact_entity import DataIngestionArtifact
 from Xray.entity.config_entity import DataIngestionConfig
 from Xray.exception import XrayException
@@ -28,6 +28,8 @@ class DataIngestion:
 
         except Exception as e:
             raise XrayException(e, sys)
+        
+        
 
     def initiate_data_ingestion(self) -> DataIngestionArtifact:
         logging.info(

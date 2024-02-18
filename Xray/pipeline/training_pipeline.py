@@ -5,12 +5,16 @@ from Xray.entity.config_entity import DataIngestionConfig
 from Xray.exception import XrayException
 from Xray.logger import logging
 
-class TrainingPipeline:
+class TrainPipeline:
     def __init__(self):
-        self.data_ingestion_config=DataIngestionConfig()
-        
-        def start_data_ingestion() -> DataIngestionArtifact:
-            logging.info("Entered the start_data_ingestion method of TrainPipeline class")
+        self.data_ingestion_config = DataIngestionConfig()
+    
+
+
+
+      
+    def start_data_ingestion(self) -> DataIngestionArtifact:
+        logging.info("Entered the start_data_ingestion method of TrainPipeline class")
         try:
 
             logging.info("Getting the data from s3 bucket")
@@ -31,17 +35,18 @@ class TrainingPipeline:
 
         except Exception as e:
             raise XrayException(e, sys)
-
+        
     def run_pipeline(self) -> None:
         logging.info("Entered the run_pipeline method of TrainPipeline class")
 
         try:
             data_ingestion_artifact: DataIngestionArtifact = self.start_data_ingestion()
-            print('Data Ingestion Completed')
-            return data_ingestion_artifact
+            
+
+            logging.info("Exited the run_pipeline method of TrainPipeline class")
 
         except Exception as e:
-            raise XrayException(e,sys)
+            raise XrayException(e, sys)
 
            
 # if __name__ == "__main__":
